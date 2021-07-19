@@ -16,7 +16,7 @@ class Plugin implements BundlePluginInterface
 	public function getBundles(ParserInterface $parser)
 	{
 		return [
-			BundleConfig::create(ContaoEloBundle::class)
+			BundleConfig::create(ContaoWertungszahlenBundle::class)
 				->setLoadAfter([ContaoCoreBundle::class]),
 		];
 	}
