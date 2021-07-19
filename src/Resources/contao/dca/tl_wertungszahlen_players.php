@@ -24,6 +24,10 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 		'dataContainer'             => 'Table',
 		'ctable'                    => array('tl_wertungszahlen_ratings'),
 		'enableVersioning'          => true,
+		'onsubmit_callback' => array
+		(
+			array('tl_wertungszahlen_players', 'adjustTime'),
+		),
 		'sql' => array
 		(
 			'keys' => array
@@ -73,8 +77,14 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 			'edit' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['edit'],
-				'href'                => 'act=edit',
+				'href'                => 'table=tl_wertungszahlen_ratings',
 				'icon'                => 'edit.gif'
+			),
+			'editheader' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['editheader'],
+				'href'                => 'act=edit',
+				'icon'                => 'header.gif',
 			),
 			'copy' => array
 			(
@@ -231,13 +241,20 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['birthday'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
+			'flag'                    => 8,
 			'eval'                    => array
 			(
 				'mandatory'           => false, 
-				'maxlength'           => 8,
-				'tl_class'            => 'w50'
+				'maxlength'           => 10,
+				'rgxp'                => 'date',
+				'datepicker'          => true,
+				'tl_class'            => 'w50 widget'
 			),
-			'sql'                     => "int(8) unsigned NOT NULL default '0'"
+			'load_callback' => array
+			(
+				array('tl_wertungszahlen_players', 'loadDate')
+			),
+			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'published' => array
 		(
@@ -340,4 +357,33 @@ class tl_wertungszahlen_players extends Backend
 		$this->createNewVersion('tl_wertungszahlen_players', $intId);
 	}
 
+	/**
+	 * Set the timestamp to 00:00:00 (see #26)
+	 *
+	 * @param integer $value
+	 *
+	 * @return integer
+	 */
+	public function loadDate($value)
+	{
+		return strtotime(date('d.m.Y', $value) . ' 00:00:00');
+	}
+
+	/**
+	 * Adjust start end end time of the event based on date, span, startTime and endTime
+	 *
+	 * @param DataContainer $dc
+	 */
+	public function adjustTime(DataContainer $dc)
+	{
+		// Return if there is no active record (override all)
+		if (!$dc->activeRecord)
+		{
+			return;
+		}
+
+		$arrSet['birthday'] = strtotime(date('d.m.Y', $dc->activeRecord->date));
+
+		$this->Database->prepare("UPDATE tl_wertungszahlen_players %s WHERE id=?")->set($arrSet)->execute($dc->id);
+	}
 }

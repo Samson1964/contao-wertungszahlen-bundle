@@ -10,11 +10,12 @@
  * Backend-Modul Übersetzungen
  */
 $GLOBALS['TL_LANG']['MOD']['wertungszahlen'] = array('Wertungszahlen', 'Wertungszahlen-Listen verwalten');
+$GLOBALS['TL_LANG']['MOD']['wertungszahlen_import_headline'] = array('Wertungsdaten aus CSV-Dateien importieren', 'Wertungsdaten aus CSV-Dateien importieren');
+$GLOBALS['TL_LANG']['MOD']['wertungszahlen_import_file'] = array('CSV-Datei', 'CSV-Datei auswählen');
+$GLOBALS['TL_LANG']['MOD']['wertungszahlen_import_submit'] = array('Import starten', 'Import starten');
 
 /**
  * Frontendmodule
  */
-$GLOBALS['TL_LANG']['FMD']['wertungszahlen'] = 'Elo-Listen';
-$GLOBALS['TL_LANG']['FMD']['wertungszahlen_toplist'] = array('Elo-Topliste eines Monats', 'Elo-Topliste eines Monats anzeigen');
-$GLOBALS['TL_LANG']['FMD']['wertungszahlen_bestlist'] = array('Ewige Elo-Bestenliste', 'Ewige Elo-Bestenliste anzeigen');
-$GLOBALS['TL_LANG']['FMD']['wertungszahlen_topx'] = array('Elo-Toplisten mehrerer Monate', 'Elo-Toplisten mehrerer Monate anzeigen');
+$GLOBALS['TL_LANG']['FMD']['wertungszahlen'] = 'Wertungszahlen';
+$GLOBALS['TL_LANG']['FMD']['wertungszahlen_bestenliste'] = array('Wertungszahlen-Bestenliste', 'Wertungszahlen-Bestenliste anzeigen');

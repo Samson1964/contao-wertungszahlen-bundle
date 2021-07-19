@@ -54,7 +54,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['players'],
 				'href'                => 'table=tl_wertungszahlen_players',
-				'icon'                => 'bundles/contaowertungszahlen/images/players.png',
+				'icon'                => 'bundles/contaowertungszahlen/images/meldungen.png',
 				'attributes'          => 'onclick="Backend.getScrollOffset();"'
 			),
 			'all' => array

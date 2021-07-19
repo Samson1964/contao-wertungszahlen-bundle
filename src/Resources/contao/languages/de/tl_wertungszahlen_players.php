@@ -3,13 +3,19 @@
 /**
  * Backend-Modul: Übersetzungen im Eingabeformular
  */
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['title_legend'] = 'Titel';
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['listmonth'] = array('Monat', 'Monat der Liste im Format JJJJMM. Wichtig für die interne Zuordnung.');
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['title'] = array('Titel', 'Titel der Liste, z.B. Juni 2016. Wird als Überschrift ausgegeben.');
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['datum'] = array('Datum', 'Datum der Liste im Format TT.MM.JJJJ');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['name_legend'] = 'Info zum Spieler';
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['lastname'] = array('Nachname', 'Nachname des Spielers');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['firstname'] = array('Vorname', 'Vorname des Spielers');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['title'] = array('Titel', 'Akademischer Titel des Spielers');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['birthday'] = array('Geburtsdatum', 'Geburtsdatum TT.MM.JJJJ');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex'] = array('Geschlecht', 'Geschlecht des Spielers');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['country'] = array('Land', 'Staatsangehörigkeit des Spielers');
+
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['member_legend'] = 'Mitglied';
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['memberId'] = array('Mitgliedsnummer', 'Mitgliedsnummer des Spielers');
 
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['publish_legend'] = 'Veröffentlichung';
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['published'] = array('Veröffentlicht', 'Liste aktivieren oder deaktivieren');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['published'] = array('Veröffentlicht', 'Spieler aktivieren oder deaktivieren');
 
 /**
  * Buttons für globale Operationen

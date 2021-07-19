@@ -44,11 +44,12 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 			'flag'                    => 1,
 			'headerFields'            => array('lastname', 'firstname'), 
 			'panelLayout'             => 'sort,filter;search,limit',
+			'child_record_callback'   => array('tl_wertungszahlen_ratings', 'listRatings'),
 		),
 		'label' => array
 		(
 			'fields'                  => array('id'),
-			'showColumns'             => true,
+			'showColumns'             => false,
 			'format'                  => '%s'
 		),
 		'global_operations' => array
@@ -114,7 +115,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array(''),
-		'default'                     => '{name_legend},lastname,firstname,intent,birthday,sex,country;{fide_legend},fideid,title,w_title,o_title,foa_title;{flag_legend},flag,rapid_flag,blitz_flag;{elo_legend},rating,games,rapid_rating,rapid_games,blitz_rating,blitz_games;{publish_legend},published'
+		'default'                     => '{rating_legend},ratingList,rating,games;{publish_legend},published'
 	),
 
 	// Subpalettes
@@ -134,12 +135,20 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 		(
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		'list_pid' => array
+		'tstamp' => array
 		(
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		'tstamp' => array
+		'ratingList' => array
 		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['ratingList'],
+			'exclude'                 => true,
+			'inputType'               => 'text',
+			'eval'                    => array
+			(
+				'mandatory'           => false, 
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'rating' => array
@@ -267,6 +276,15 @@ class tl_wertungszahlen_ratings extends Backend
 		$this->Database->prepare("UPDATE tl_wertungszahlen_ratings SET tstamp=". time() .", published='" . ($blnPublished ? '' : '1') . "' WHERE id=?")
 		               ->execute($intId);
 		$this->createNewVersion('tl_wertungszahlen_ratings', $intId);
+	}
+
+	public function listRatings($arrRow)
+	{
+		$temp = '<div class="tl_content_left">';
+		$temp .= 'Wertungsliste: <b>' . $arrRow['ratingList'] . '</b>';
+		$temp .= ' - Wertungszahl: <b>' . $arrRow['rating'] . '</b>';
+		$temp .= ' - Partien: <b>' . $arrRow['games'] . '</b>';
+		return $temp.'</div>';
 	}
 
 }
