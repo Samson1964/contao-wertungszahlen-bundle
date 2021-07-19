@@ -45,12 +45,18 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 		),
 		'label' => array
 		(
-			'fields'                    => array('id', 'listmonth', 'datum', 'title'),
+			'fields'                    => array('title', 'listmonth', 'datum'),
 			'showColumns'               => true,
-			//'label_callback'          => array('tl_wertungszahlen', 'convertDate')
 		),
 		'global_operations' => array
 		(
+			'players' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['players'],
+				'href'                => 'table=tl_wertungszahlen_players',
+				'icon'                => 'bundles/contaowertungszahlen/images/players.png',
+				'attributes'          => 'onclick="Backend.getScrollOffset();"'
+			),
 			'all' => array
 			(
 				'label'                 => &$GLOBALS['TL_LANG']['MSC']['all'],
@@ -61,12 +67,6 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 		),
 		'operations' => array
 		(
-			'edit' => array
-			(
-				'label'                 => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['edit'],
-				'href'                  => 'table=tl_elo',
-				'icon'                  => 'edit.gif',
-			),
 			'editheader' => array
 			(
 				'label'                 => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['editheader'],
@@ -98,7 +98,14 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 				'label'                 => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['show'],
 				'href'                  => 'act=show',
 				'icon'                  => 'show.gif'
-			)
+			),
+			'import' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['import'],
+				'href'                => 'key=importCSV',
+				'icon'                => 'bundles/contaowertungszahlen/images/import.png',
+				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['tl_wertungszahlen']['importConfirm'] . '\')) return false; Backend.getScrollOffset();"'
+			), 
 		)
 	),
 
@@ -106,7 +113,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 	'palettes' => array
 	(
 		'__selector__'                  => array(''),
-		'default'                       => '{title_legend},listmonth,title,datum;{publish_legend},published'
+		'default'                       => '{title_legend},title,listmonth,datum;{publish_legend},published'
 	),
 
 	// Subpalettes
@@ -137,7 +144,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 			(
 				'mandatory'             => true,
 				'maxlength'             => 64,
-				'tl_class'              => 'w50 clr'
+				'tl_class'              => 'w50'
 			),
 			'sql'                       => "varchar(64) NOT NULL default ''"
 		),
@@ -173,7 +180,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 			(
 				'mandatory'             => true,
 				'maxlength'             => 6,
-				'tl_class'              => 'w50'
+				'tl_class'              => 'w50 clr'
 			),
 			'sql'                       => "int(6) unsigned NOT NULL default '0'"
 		),

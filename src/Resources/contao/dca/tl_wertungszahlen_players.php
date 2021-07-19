@@ -53,6 +53,13 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 		),
 		'global_operations' => array
 		(
+			'listen' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['listen'],
+				'href'                => 'table=tl_wertungszahlen',
+				'icon'                => 'bundles/contaowertungszahlen/images/turniere.png',
+				'attributes'          => 'onclick="Backend.getScrollOffset();"'
+			),
 			'all' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
@@ -114,7 +121,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array(''),
-		'default'                     => '{name_legend},lastname,firstname,intent,birthday,sex,country;{fide_legend},fideid,title,w_title,o_title,foa_title;{flag_legend},flag,rapid_flag,blitz_flag;{elo_legend},rating,games,rapid_rating,rapid_games,blitz_rating,blitz_games;{publish_legend},published'
+		'default'                     => '{name_legend},lastname,firstname,title,birthday,sex,country;{member_legend},memberId;{publish_legend},published'
 	),
 
 	// Subpalettes
@@ -138,9 +145,9 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 		(
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		'memberid' => array
+		'memberId' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['memberid'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['memberId'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
 			'eval'                    => array
@@ -179,19 +186,6 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 			),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
-		'intent' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['intent'],
-			'exclude'                 => true,
-			'inputType'               => 'text',
-			'eval'                    => array
-			(
-				'mandatory'           => false, 
-				'maxlength'           => 16,
-				'tl_class'            => 'w50'
-			),
-			'sql'                     => "varchar(16) NOT NULL default ''"
-		),
 		'country' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['country'],
@@ -227,10 +221,10 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 			'eval'                    => array
 			(
 				'mandatory'           => false, 
-				'maxlength'           => 3,
+				'maxlength'           => 16,
 				'tl_class'            => 'w50 clr'
 			),
-			'sql'                     => "varchar(3) NOT NULL default ''"
+			'sql'                     => "varchar(16) NOT NULL default ''"
 		),
 		'birthday' => array
 		(
