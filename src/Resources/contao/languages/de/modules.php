@@ -19,3 +19,4 @@ $GLOBALS['TL_LANG']['MOD']['wertungszahlen_import_submit'] = array('Import start
  */
 $GLOBALS['TL_LANG']['FMD']['wertungszahlen'] = 'Wertungszahlen';
 $GLOBALS['TL_LANG']['FMD']['wertungszahlen_bestenliste'] = array('Wertungszahlen-Bestenliste', 'Wertungszahlen-Bestenliste anzeigen');
+$GLOBALS['TL_LANG']['FMD']['wertungszahlen_suche'] = array('Wertungszahlen-Suche', 'Wertungszahlen-Suche anzeigen');

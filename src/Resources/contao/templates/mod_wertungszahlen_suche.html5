@@ -1,0 +1,29 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="suchformular">
+	<form action="" id="wertungszahlen_suche" method="get">
+		<input type="text" name="wzs" class="text" value="">
+		<input type="submit" class="submit" value="Suchen">
+	</form>
+</div>
+
+<?php if($this->sucheaktiv && !$this->suchfehler): ?>
+	<div class="trefferliste">
+		<p>Sie suchten nach "<i><?= $this->suchbegriff ?></i>". Es wurden <?= $this->suchtreffer ?> Personen gefunden:</p>
+		<?php if($this->suchergebnis): ?>
+			<ul>
+			<?php foreach($this->suchergebnis as $item): ?>
+				<li><?= $item ?></li>
+			<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+	</div>
+<?php elseif ($this->sucheaktiv && $this->suchfehler): ?>
+	<div class="trefferliste error">
+		<?= $this->suchfehler ?>
+	</div>
+<?php endif; ?>
+
+<?php $this->endblock(); ?>

@@ -1,5 +1,10 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.0.0 (2021-07-21)
+
+* Add: Ausgabe einer Suche als Frontend-Modul
+* Add: Abhängigkeit schachbulle/contao-helper-bundle
+
 ## Version 0.0.4 (2021-07-19)
 
 * Ausbau des Bundles mit den benötigten Feldern

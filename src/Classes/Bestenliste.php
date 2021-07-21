@@ -60,7 +60,7 @@ class Bestenliste extends \Module
 	 */
 	protected function compile()
 	{
-		$cachetime = 0; //3600 * 24 * 40; // 40 Tage
+		$cachetime = 3600 * 24 * 40; // 40 Tage
 		$cachekey = $this->wertungszahlen_liste.'_'.$this->wertungszahlen_topcount;
 
 		// Cache initialisieren
