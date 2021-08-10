@@ -1,5 +1,9 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.0.1 (2021-08-10)
+
+* Fix: Spielersuche, Ausgabe der Trefferliste aufsteigend sortiert
+
 ## Version 1.0.0 (2021-07-21)
 
 * Add: Ausgabe einer Suche als Frontend-Modul

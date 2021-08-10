@@ -72,7 +72,7 @@ class Suche extends \Module
 			{
 
 				// Wertungszahlen laden
-				$objElo = \Database::getInstance()->prepare('SELECT tl_wertungszahlen_ratings.*, tl_wertungszahlen_players.* FROM tl_wertungszahlen_ratings LEFT JOIN tl_wertungszahlen_players ON tl_wertungszahlen_ratings.pid = tl_wertungszahlen_players.id WHERE ratingList = ? ORDER BY lastname DESC, firstname DESC')
+				$objElo = \Database::getInstance()->prepare('SELECT tl_wertungszahlen_ratings.*, tl_wertungszahlen_players.* FROM tl_wertungszahlen_ratings LEFT JOIN tl_wertungszahlen_players ON tl_wertungszahlen_ratings.pid = tl_wertungszahlen_players.id WHERE ratingList = ? ORDER BY lastname ASC, firstname ASC')
 				                                  ->execute($this->wertungszahlen_liste);
 
 				// Elo zuweisen
