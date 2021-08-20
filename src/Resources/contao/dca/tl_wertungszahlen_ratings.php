@@ -42,7 +42,8 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 			'mode'                    => 4,
 			'fields'                  => array('id'),
 			'flag'                    => 1,
-			'headerFields'            => array('lastname', 'firstname'), 
+			'headerFields'            => array('lastname', 'firstname'),
+			'disableGrouping'         => true,
 			'panelLayout'             => 'sort,filter;search,limit',
 			'child_record_callback'   => array('tl_wertungszahlen_ratings', 'listRatings'),
 		),
@@ -200,7 +201,9 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
  */
 class tl_wertungszahlen_ratings extends Backend
 {
-	 
+
+	var $wertungsliste = array();
+
 	/**
 	 * Import the back end user object
 	 */
@@ -208,6 +211,17 @@ class tl_wertungszahlen_ratings extends Backend
 	{
 		parent::__construct();
 		$this->import('BackendUser', 'User');
+		
+		// Namen der Wertungslisten laden
+		$result = \Database::getInstance()->prepare("SELECT * FROM tl_wertungszahlen")
+		                                  ->execute();
+		if($result->numRows)
+		{
+			while($result->next())
+			{
+				$this->wertungsliste[$result->id] = $result->title.' ('.date('d.m.Y', $result->datum).')';
+			}
+		}
 	}
 
 	/**
@@ -281,7 +295,7 @@ class tl_wertungszahlen_ratings extends Backend
 	public function listRatings($arrRow)
 	{
 		$temp = '<div class="tl_content_left">';
-		$temp .= 'Wertungsliste: <b>' . $arrRow['ratingList'] . '</b>';
+		$temp .= 'Wertungsliste: <b>' . $this->wertungsliste[$arrRow['ratingList']] . '</b>';
 		$temp .= ' - Wertungszahl: <b>' . $arrRow['rating'] . '</b>';
 		$temp .= ' - Partien: <b>' . $arrRow['games'] . '</b>';
 		return $temp.'</div>';

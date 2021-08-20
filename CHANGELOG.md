@@ -1,5 +1,9 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.0.2 (2021-08-20)
+
+* Fix: Ausgabe der Wertungszahlen in BE-Liste verbessert
+
 ## Version 1.0.1 (2021-08-10)
 
 * Fix: Spielersuche, Ausgabe der Trefferliste aufsteigend sortiert
