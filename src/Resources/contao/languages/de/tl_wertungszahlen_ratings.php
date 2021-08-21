@@ -4,7 +4,7 @@
  * Backend-Modul: Übersetzungen im Eingabeformular
  */
 $GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['rating_legend'] = 'Wertungszahl';
-$GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['ratingList'] = array('Wertungsliste', 'Nummer der Wertungsliste');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['ratingList'] = array('Wertungsliste', 'Wertungsliste auswählen');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['rating'] = array('Wertungszahl', 'Wertungszahl des Spielers');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['games'] = array('Partien', 'Ausgewertete Partien');
 

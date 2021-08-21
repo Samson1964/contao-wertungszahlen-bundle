@@ -7,7 +7,7 @@ $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['name_legend'] = 'Info zum Spie
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['lastname'] = array('Nachname', 'Nachname des Spielers');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['firstname'] = array('Vorname', 'Vorname des Spielers');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['title'] = array('Titel', 'Akademischer Titel des Spielers');
-$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['birthday'] = array('Geburtsdatum', 'Geburtsdatum TT.MM.JJJJ');
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['birthday'] = array('Geburtsdatum', 'Geburtsdatum TT.MM.JJJJ. Alternativ auch MM.JJJJ oder JJJJ möglich.');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex'] = array('Geschlecht', 'Geschlecht des Spielers');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['country'] = array('Land', 'Staatsangehörigkeit des Spielers');
 
@@ -33,3 +33,14 @@ $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['copy'] = array('Spieler kopier
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['delete'] = array('Spieler löschen', 'Spieler %s löschen');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['toggle'] = array('Spieler aktivieren/deaktivieren', 'Spieler %s aktivieren/deaktivieren');
 $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['show'] = array('Details des Spielers anzeigen', 'Details des Spielers %s anzeigen');
+
+/**
+ * Select-Felder
+ */
+
+$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex_options'] = array
+(
+	'm' => 'Männlich',
+	'w' => 'Weiblich',
+);
+

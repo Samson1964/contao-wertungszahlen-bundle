@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 		(
 			'mode'                    => 4,
 			'fields'                  => array('id'),
-			'flag'                    => 1,
+			'flag'                    => 2,
 			'headerFields'            => array('lastname', 'firstname'),
 			'disableGrouping'         => true,
 			'panelLayout'             => 'sort,filter;search,limit',
@@ -144,9 +144,12 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_ratings'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_ratings']['ratingList'],
 			'exclude'                 => true,
-			'inputType'               => 'text',
+			'inputType'               => 'select',
+			'foreignKey'              => 'tl_wertungszahlen.title',
 			'eval'                    => array
 			(
+				'includeBlankOption'  => true,
+				'chosen'              => true,
 				'mandatory'           => false, 
 				'tl_class'            => 'w50'
 			),

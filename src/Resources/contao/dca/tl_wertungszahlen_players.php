@@ -213,11 +213,12 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex'],
 			'exclude'                 => true,
-			'inputType'               => 'text',
+			'inputType'               => 'select',
+			'options'                 => $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex_options'],
 			'eval'                    => array
 			(
+				'includeBlankOption'  => true,
 				'mandatory'           => false, 
-				'maxlength'           => 1,
 				'tl_class'            => 'w50'
 			),
 			'sql'                     => "varchar(1) NOT NULL default ''"
@@ -240,21 +241,25 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['birthday'],
 			'exclude'                 => true,
+			'search'                  => false,
+			'sorting'                 => true,
+			'flag'                    => 11,
 			'inputType'               => 'text',
-			'flag'                    => 8,
 			'eval'                    => array
 			(
-				'mandatory'           => false, 
 				'maxlength'           => 10,
-				'rgxp'                => 'date',
-				'datepicker'          => true,
-				'tl_class'            => 'w50 widget'
+				'tl_class'            => 'w50',
+				'rgxp'                => 'alnum'
 			),
-			'load_callback' => array
+			'load_callback'           => array
 			(
-				array('tl_wertungszahlen_players', 'loadDate')
+				array('\Schachbulle\ContaoHelperBundle\Classes\Helper', 'getDate')
 			),
-			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+			'save_callback' => array
+			(
+				array('\Schachbulle\ContaoHelperBundle\Classes\Helper', 'putDate')
+			),
+			'sql'                     => "int(8) unsigned NOT NULL default '0'"
 		),
 		'published' => array
 		(
@@ -355,18 +360,6 @@ class tl_wertungszahlen_players extends Backend
 		$this->Database->prepare("UPDATE tl_wertungszahlen_players SET tstamp=". time() .", published='" . ($blnPublished ? '' : '1') . "' WHERE id=?")
 		               ->execute($intId);
 		$this->createNewVersion('tl_wertungszahlen_players', $intId);
-	}
-
-	/**
-	 * Set the timestamp to 00:00:00 (see #26)
-	 *
-	 * @param integer $value
-	 *
-	 * @return integer
-	 */
-	public function loadDate($value)
-	{
-		return strtotime(date('d.m.Y', $value) . ' 00:00:00');
 	}
 
 	/**

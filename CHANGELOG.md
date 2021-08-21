@@ -1,5 +1,12 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.0.3 (2021-08-21)
+
+* Fix: Änderung Sortierung tl_wertungszahlen_ratings von id ASC auf id DESC
+* Change: tl_wertungszahlen_ratings.ratingList auf SELECT umgestellt
+* Change: tl_wertungszahlen_players.sex auf SELECT umgestellt
+* Change: tl_wertungszahlen_players.birthday auf alternative Eingabe von MM.JJJJ oder JJJJ umgestellt
+
 ## Version 1.0.2 (2021-08-20)
 
 * Fix: Ausgabe der Wertungszahlen in BE-Liste verbessert
