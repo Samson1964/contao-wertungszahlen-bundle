@@ -1,5 +1,12 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.0.4 (2022-04-22)
+
+* Add: Backend-CSS
+* Fix: UTF8-Erkennung beim Import verbessert
+* Fix: Import-Formular verbessert mit Infos zum Importformat
+* Fix: Importfunktionen verbessert
+
 ## Version 1.0.3 (2021-08-21)
 
 * Fix: Änderung Sortierung tl_wertungszahlen_ratings von id ASC auf id DESC

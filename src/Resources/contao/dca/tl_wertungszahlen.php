@@ -101,10 +101,9 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen'] = array
 			),
 			'import' => array
 			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['import'],
-				'href'                => 'key=importCSV',
-				'icon'                => 'bundles/contaowertungszahlen/images/import.png',
-				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['tl_wertungszahlen']['importConfirm'] . '\')) return false; Backend.getScrollOffset();"'
+				'label'                 => &$GLOBALS['TL_LANG']['tl_wertungszahlen']['import'],
+				'href'                  => 'key=importCSV',
+				'icon'                  => 'bundles/contaowertungszahlen/images/import.png',
 			), 
 		)
 	),

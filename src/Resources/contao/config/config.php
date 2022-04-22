@@ -28,8 +28,8 @@
  */
 $GLOBALS['BE_MOD']['content']['wertungszahlen'] = array
 (
-	'tables'                  => array('tl_wertungszahlen', 'tl_wertungszahlen_players', 'tl_wertungszahlen_ratings'),
-	'importCSV'            => array('\Schachbulle\ContaoWertungszahlenBundle\Classes\Import', 'importCSV'), 
+	'tables'                     => array('tl_wertungszahlen', 'tl_wertungszahlen_players', 'tl_wertungszahlen_ratings'),
+	'importCSV'                  => array('\Schachbulle\ContaoWertungszahlenBundle\Classes\Import', 'importCSV'), 
 );
 
 
@@ -42,3 +42,13 @@ $GLOBALS['FE_MOD']['wertungszahleno'] = array
 	'wertungszahlen_bestenliste' => 'Schachbulle\ContaoWertungszahlenBundle\Classes\Bestenliste',
 	'wertungszahlen_suche'       => 'Schachbulle\ContaoWertungszahlenBundle\Classes\Suche',
 );
+
+/**
+ * Backend-CSS
+ */
+
+if(TL_MODE == 'BE')
+{
+	$GLOBALS['TL_CSS'][] = 'bundles/contaowertungszahlen/css/backend.css';
+}
+
