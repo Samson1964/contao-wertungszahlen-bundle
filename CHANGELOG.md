@@ -1,5 +1,11 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.1.0 (2024-04-18)
+
+* Add: codefog/contao-haste
+* Change: Haste-Toggler statt des normalen Togglers
+* Add: Kompatibilität PHP 8
+
 ## Version 1.0.4 (2022-04-22)
 
 * Add: Backend-CSS
