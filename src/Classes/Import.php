@@ -54,7 +54,7 @@ class Import extends \Backend
 					continue;
 				}
 
-				log_message('Importiere Datei: '.$txtFile,'wertungszahlen.log');
+				//log_message('Importiere Datei: '.$txtFile,'wertungszahlen.log');
 				$resFile = $objFile->handle;
 				$record_count = 0;
 				$neu_count = 0;
@@ -63,11 +63,11 @@ class Import extends \Backend
 				$start = microtime(true);
 
 				// Alte Datensätze löschen
-				log_message('Lösche alte Wertungszahlen aus Liste '.\Input::get('id'),'wertungszahlen.log');
+				//log_message('Lösche alte Wertungszahlen aus Liste '.\Input::get('id'),'wertungszahlen.log');
 				\Database::getInstance()->prepare('DELETE FROM tl_wertungszahlen_ratings WHERE ratingList = ?')
 				                        ->execute(\Input::get('id'));
 
-				log_message('Import startet ...','wertungszahlen.log');
+				//log_message('Import startet ...','wertungszahlen.log');
 				while(!feof($resFile))
 				{
 					$zeile = self::remove_utf8_bom(trim(fgets($resFile)));
@@ -76,14 +76,14 @@ class Import extends \Backend
 					{
 						// Kopfzeile auslesen
 						$kopf = $spalte;
-						log_message('Lese Kopfzeile '.$record_count.': '.$zeile,'wertungszahlen.log');
+						//log_message('Lese Kopfzeile '.$record_count.': '.$zeile,'wertungszahlen.log');
 					}
 					else
 					{
 						if($zeile)
 						{
 							// Datensatz auslesen
-							log_message('Importiere Datenzeile '.$record_count.': '.$zeile,'wertungszahlen.log');
+							//log_message('Importiere Datenzeile '.$record_count.': '.$zeile,'wertungszahlen.log');
 							$set = array();
 							$fwzdaten = array();
 							for($x = 0; $x < count($spalte); $x++)
@@ -115,7 +115,7 @@ class Import extends \Backend
 							else
 							{
 								// Spieler nicht vorhanden, dann eintragen
-								log_message('Neuer Spieler: '.$fwzdaten['firstname'].' '.$fwzdaten['lastname'],'wertungszahlen.log');
+								//log_message('Neuer Spieler: '.$fwzdaten['firstname'].' '.$fwzdaten['lastname'],'wertungszahlen.log');
 								$set = array
 								(
 									'lastname'  => $fwzdaten['lastname'],
@@ -131,7 +131,7 @@ class Import extends \Backend
 							}
 
 							// Wertungszahl eintragen
-							log_message('Neue FWZ bei '.$fwzdaten['firstname'].' '.$fwzdaten['lastname'].': '.$fwzdaten['rating'],'wertungszahlen.log');
+							//log_message('Neue FWZ bei '.$fwzdaten['firstname'].' '.$fwzdaten['lastname'].': '.$fwzdaten['rating'],'wertungszahlen.log');
 							$set = array
 							(
 								'pid'        => $id,
@@ -192,9 +192,9 @@ class Import extends \Backend
 
 	function remove_utf8_bom($text)
 	{
-	    $bom = pack('H*','EFBBBF');
-	    $text = preg_replace("/^$bom/", '', $text);
-	    return $text;
+		$bom = pack('H*','EFBBBF');
+		$text = preg_replace("/^$bom/", '', $text);
+		return $text;
 	}
 
 }

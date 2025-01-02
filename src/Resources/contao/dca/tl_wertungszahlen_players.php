@@ -221,7 +221,7 @@ $GLOBALS['TL_DCA']['tl_wertungszahlen_players'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex'],
 			'exclude'                 => true,
 			'inputType'               => 'select',
-			'options'                 => $GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex_options'],
+			'options'                 => &$GLOBALS['TL_LANG']['tl_wertungszahlen_players']['sex_options'],
 			'eval'                    => array
 			(
 				'includeBlankOption'  => true,

@@ -1,5 +1,11 @@
 # Wertungszahlen-Listen Changelog
 
+## Version 1.1.1 (2025-01-02)
+
+* Fix: Warning: Undefined variable $txtFile in /src/Classes/Import.php (line 57) 
+* Change: log_message deaktiviert in Import.php wegen Problemen auf BdF-Website mit PHP 8.2
+* Fix: Warning: Undefined array key "sex_options" in src/Resources/contao/dca/tl_wertungszahlen_players.php (line 224) 
+
 ## Version 1.1.0 (2024-04-18)
 
 * Add: codefog/contao-haste
